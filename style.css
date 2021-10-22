@@ -1,5 +1,8 @@
 body {
-background-color:rgb(250,250,250);
+  background: rgb(210,210,210);
+  background: linear-gradient(0deg, rgba(260,260,260,1) 0%, rgba(230,230,230,1) 50%, rgba(200,200,200,1) 100%);
+  height: 100%;
+  width: 100%;
 color: white;
 font-family: fantasy;
 text-align: center;
@@ -188,8 +191,6 @@ font-size: 24px;
   list-style: none;
   padding-left: 10px;
 
-
-
 }
 .list-inline li {
   display: inline-block;
@@ -201,13 +202,51 @@ font-size: 24px;
   padding-bottom: 8px;
 }
 
+#opening_inline{
+display: inline-block;
+list-style: none;
+width:100%;
 
+
+
+}
+
+#div_left_opening {
+    left: -25px;
+    position:relative;
+    width:50%;
+    margin: 0;
+    margin-left: 15px;
+    margin-bottom: 0;
+    font-size: 32px;
+    float:left;
+
+}
+#div_right_opening {
+    left: -25px;
+    position:relative;
+
+    margin: 0;
+    margin-left: 15px;
+    margin-bottom: 0;
+    font-size: 32px;
+    float:right;
+
+}
+
+#kaneki_Pic{
+  margin-bottom: 0px;
+}
+#kaneki_Pic{
+  margin-top: 0px;
+}
 .wrapper nav {
 position: relative;
 
 
 
 }
+
 nav{
     width: auto;
     margin: -5px ;
@@ -259,7 +298,7 @@ nav a:hover{
     box-shadow: 5px 7px 30px black;
     background-color: rgb(240,240,240);
     position: absolute;
-    width: 100%;
+    width: 250px;
     z-index: 1000;
     float: left;
     padding-right: 80px;
@@ -353,4 +392,108 @@ bottom: 3px;
   font-size: 26px;
   font-weight: bold;
   cursor : pointer;
+}
+
+
+
+
+@font-face {
+    font-family:"SSStandard";
+  src:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ss-standard.woff') format('woff');
+  font-weight:normal;
+  font-style:normal;
+}
+.ss-icon,.ss-icon.ss-standard {
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    white-space: nowrap;
+    font-feature-settings: "liga","dlig";
+}
+.ss-icon,.ss-icon.ss-standard {
+    font-family: "SSStandard";
+}
+* { box-sizing: border-box; }
+figure#audioplayer {
+  border: 1px solid #000;
+  background: #333;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/dark_wall.png);
+  overflow: hidden;
+  width: 32rem;
+  padding: .4rem;
+  margin: 0 auto;
+    border: 3px solid white;
+    border-radius: 8px;
+}
+figure#audioplayer audio { width: 0; height: 0; }
+figure#audioplayer figcaption {
+  width: 21.5rem; font-size: 0;
+  margin: .45rem; background: #000;
+  float: left;
+  border: 4px solid white;
+    text-align: left;
+}
+figure#audioplayer figcaption div {
+  background: #000;
+  color: #fff;
+  padding: .8rem;
+  font-family:  fantasy, sans-serif;
+  text-transform: uppercase; font-size: .8rem;
+  display: inline-block;
+  text-align: left;
+}
+figure#audioplayer figcaption div span {
+  display: block;
+  font-size: 1.3rem;
+  text-indent: 1rem;
+}
+div#album {
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+  width: 100%;
+}
+div#time {
+  width: 7.55rem;
+  border-left: 1px solid #555;
+}
+input#volumeSlider { -webkit-appearance: slider-vertical;    ;cursor : pointer;}
+figure#audioplayer button {
+  width: 3rem; height: 3rem;
+  background: #000; color: #fff;
+
+    border: 2px solid white;
+    border-radius: 4px;
+      cursor : pointer;
+}
+#playback { clear: both; }
+div#fader { display: inline-block; }
+#playback progress {
+  margin-left: 1rem;
+  width: 20rem; height: 12px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #888;
+  border: none;
+  color: hsl(0deg 0% 100%);
+  cursor : pointer;
+}
+progress::-webkit-progress-bar, progress::-moz-progress-bar, progress::progress-bar {
+  background: hsl(44,100%,44%);
+}
+progress::-webkit-progress-value { background: hsl(0deg 0% 100%); }
+progress::-moz-progress-bar {
+background-color: hsl(0deg 0% 100%);
+}
+@media screen and (max-width: 500px) {
+  div#time { display: block !important; border-top: 1px solid #555; width: 100%; }
+  figure#audioplayer { width: 100%; padding: .2rem; }
+  figure#audioplayer figcaption div { padding: .4rem; }
+}
+@media screen and (max-width: 450px) {
+figure#audioplayer figcaption { width: 16rem; }
+#playback progress { width: 220px; }
+}
+@media screen and (max-width: 400px) {
+figure#audioplayer figcaption { width: 14rem; }
 }

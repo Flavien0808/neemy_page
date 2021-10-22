@@ -41,18 +41,22 @@
 
                       </li>
                       <li><a href="index.html"  target="_blank">Katie's Profile</a></li>
-                      <li><a href="#">Panda's Profile</a></li>
-                      <li><a href="#">Jwain's Profile</a></li>
-                      <li><a href="#">Rere's Profile</a></li>
+                      <li><a href="#">Cours HTML et CSS</a></li>
+                      <li><a href="#">Cours JavaScript</a></li>
+                      <li><a href="#">Cours PHP et MySQL</a></li>
                     </ul>
                 </ul>
               </nav>
 
 
 
-           <li>  
-             <a href="Project" class="btn-white" target="_blank">My Start-Up Project</a>
-            </li>
+                         <li>
+                           <a href="Project" class="btn-white" target="_blank">My Start-Up Project</a>
+                          </li>
+
+
+
+
 
           <li>
             <a href="neemy_gift.html" class="btn-white" target="_blank">My Birthday Gifts By Katie</a>
@@ -62,18 +66,18 @@
           </li>
 
 
-            <script language="javascript">
-          function swap() {
-            searchBar = document.getElementById("searchBar" );
+          <script language="javascript">
+        function swap() {
+          searchBar = document.getElementById("searchBar" );
 
-            if (searchBar.style.display != "none" ) {
-                  searchBar.style.display = "none";
-              }
-            else {
-                searchBar.style.display = "inline";
+          if (searchBar.style.display != "none" ) {
+                searchBar.style.display = "none";
             }
+          else {
+              searchBar.style.display = "inline";
           }
-          </script>
+        }
+        </script>
               <li><a href=# class="search-icon"onclick='swap();'>
                 <i class="fas fa-search"></i></a> </li>
                   <div >
@@ -92,16 +96,11 @@
     <div class="card-black">
       <h1>🌚Hello, I am Neemy🌝</h1>
 
-      <img src="neemy.jpg"alt="Neemy's Picture" class="Neemy_pic">
-        <img src="neemy2.jpg"alt="Neemy's Picture" class="Neemy_pic">
-        <video
-        width="200px"
-        height="415px"
 
-            controls="controls"/>
-            <source src="vidéo_neemy.mp4"
-                type="video/mp4" id="Neemy_vidéo">
-        </video>
+video / pic
+
+
+
      </div>
 
 
@@ -117,7 +116,7 @@
      <div class="card-black">
       <h5>  Raneem's Name signification</h5>
             <p>
-             <img src="Raneem_name.PNG" id="monImage" class="Neemy_pic">
+             <img src="Images/Raneem_name.png" id="monImage" class="Neemy_pic">
            </p>
       </h5>
      </div>
@@ -146,36 +145,46 @@
           <h2>My favorite openings :</h2>
       </div>
 
-
-      <div>
+<div id="opening_inline">
+      <div id="div_left_opening">
         <p>Noragami :</p>
-          <a href="https://www.youtube.com/watch?v=aR2ZkMh_imw"target="_blank"><img src="yato.jpg"alt="yato's Picture"class="Neemy_pic"></a>
+          <a href="https://www.youtube.com/watch?v=aR2ZkMh_imw"target="_blank">
+            <img src="images/yato.jpg"alt="yato's Picture"class="Neemy_pic" width="350px" height="250px"></a>
         <p>Vidéo Noragami :</p>
             <video
-            width="400px"
-            height="300px"
+            width="512px"
+            height="288px"
                 controls="controls"/>
 
-                <source src="noragami.mp4"
+                <source src="images/noragami.mp4"
                     type="video/mp4">
             </video>
       </div>
 
 
-      <div>
+      <div id="div_right_opening">
           <p>Tokyo Ghoul :</p>
-              <a href="https://www.youtube.com/watch?v=7aMOurgDB-o"target="_blank"><img src="kaneki.jpg"alt="Kaneki's Picture"class="Neemy_pic"></a>
-           <figure>
-              <figcaption>Listen to Tokyo Ghoul :</figcaption>
-              <br>
-            <audio
-              controls
-                src="media/tokyo_opening.mp3">
-            </audio>
-           </figure>
+
+              <a href="https://www.youtube.com/watch?v=7aMOurgDB-o"target="_blank">
+                <img src="images/kaneki.jpg"alt="Kaneki's Picture"class="Neemy_pic" id="kaneki_Pic"width="350px" height="250px"></a>
+                    <p>Listen to Tokyo Ghoul :</p>
+                <div>
+                <figure id="audioplayer" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
+                <figcaption>
+                <div>Track<span itemprop="name">Unravel</span></div>
+                <div id="album">Album<span itemprop="inAlbum">Fantastic Magic</span></div>
+                <div id="artist">Artist<span itemprop="byArtist">Toru Kitajima</span></div>
+                <div id="time">Time<span id="playbacktime">00:00</span></div>
+                </figcaption>
+                <meta itemprop="duration" content="PT2M29S">
+                <div id="fader"></div>
+                <div id="playback"></div>
+                <audio controls src="media/tokyo_opening.mp3" id="audiotrack" preload="auto" itemprop="audio"></audio>
+                </figure>
+
       </div>
      </div>
-
+</div>
 
     <div class="card-black">
       <h3> <i class="fas fa-cookie-bite">
@@ -225,6 +234,97 @@
     </div>
 
   </div>
+
+  <script language="javascript">
+
+    function player() {
+      if (audioTrack.paused) {
+    	setText(this, "Pause");
+    	audioTrack.play();
+    	} else {
+    	setText(this,"Play");
+    	audioTrack.pause();
+    	}
+    }
+
+    function setText(el,text) {
+    	el.innerHTML = text;
+    }
+
+    function finish() {
+    		audioTrack.currentTime = 0;
+    		setText(playButton,"Play");
+    }
+
+    function updatePlayhead() {
+    	playhead.value = audioTrack.currentTime;
+    	var s = parseInt(audioTrack.currentTime % 60);
+        var m = parseInt((audioTrack.currentTime / 60) % 60);
+        s = (s >= 10) ? s : "0" + s;
+        m = (m >= 10) ? m : "0" + m;
+        playbacktime.innerHTML = m + ':' + s ;
+
+    }
+
+    function volumizer() {
+    	if (audioTrack.volume == 0) { setText(muteButton,"volume"); }
+    	else { setText(muteButton,"volumehigh"); }
+    }
+
+    function muter() {
+    	if (audioTrack.volume == 0) {
+    		audioTrack.volume = restoreValue;
+    		volumeSlider.value = restoreValue;
+    	} else {
+    		audioTrack.volume = 0;
+    		restoreValue = volumeSlider.value;
+    		volumeSlider.value = 0;
+    	}
+    }
+
+    function setAttributes(el, attrs) {
+    	for(var key in attrs){
+    		el.setAttribute(key, attrs[key]);
+    	}
+    }
+
+    var audioPlayer = document.getElementById("audioplayer"),
+    fader = document.getElementById("fader"),
+    playback = document.getElementById("playback"),
+    audioTrack = document.getElementById("audiotrack"),
+    playbackTime = document.getElementById("playbacktime"),
+    playButton = document.createElement("button"),
+    muteButton = document.createElement("button"),
+    playhead = document.createElement("progress")
+    volumeSlider = document.createElement("input");
+    setText(playButton, "Play");
+    setText(muteButton, "volumehigh");
+    setAttributes(playButton, { "type": "button", "class": "ss-icon" });
+    setAttributes(muteButton, { "type": "button", "class": "ss-icon" });
+    muteButton.style.display = "block";
+    muteButton.style.margin = "0 auto";
+    setAttributes(volumeSlider, { "type": "range", "min": "0", "max": "1", "step": "any", "value": "1", "orient": "vertical", "id": "volumeSlider" });
+    var duration = audioTrack.duration;
+    setAttributes(playhead, { "min": "0", "max": "100", "value": "0", "id": "playhead" });
+    fader.appendChild(volumeSlider);
+    fader.appendChild(muteButton);
+    playback.appendChild(playButton);
+    playback.appendChild(playhead);
+    audioTrack.removeAttribute("controls");
+    playButton.addEventListener("click", player, false);
+    muteButton.addEventListener("click", muter, false);
+    volumeSlider.addEventListener("input", function(){ audioTrack.volume = volumeSlider.value; }, false);
+    audioTrack.addEventListener('volumechange', volumizer, false);
+    audioTrack.addEventListener('playing', function(){ playhead.max = audioTrack.duration; }, false);
+    audioTrack.addEventListener('timeupdate', updatePlayhead, false);
+    audioTrack.addEventListener('ended', finish, false);
+
+
+  </script>
+
+
+
+
 
  </body>
 
